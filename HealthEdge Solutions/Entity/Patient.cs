@@ -42,4 +42,45 @@ public class Patient
         InsurancePolicyNumber = insurancePolicyNumber;
         MedicalRecords = new MedicalRecord();
     }
+
+
+    public void MakeAppointment()
+    {
+        // Логіка для запису на прийом
+    }
+
+    public void ViewAppointments()
+    {
+        // Логіка для перегляду прийомів пацієнта
+    }
+
+    public void ViewMedicalRecord()
+    {
+        // Логіка для перегляду медичної картки пацієнта
+    }
+
+    public void ViewTreatmentPlans()
+    {
+        // Логіка для перегляду планів лікування пацієнта
+    }
+
+    public void ViewMedicalTests()
+    {
+        // Логіка для перегляду медичних тестів (аналізів) пацієнта
+    }
+
+    public void ViewMedicalInsurance()
+    {
+        // Логіка для перегляду медичного страхування пацієнта
+    }
+
+    public void ViewBillingInvoices()
+    {
+        // Логіка для перегляду рахунків пацієнта
+    }
+
+    public void ViewMedicalFacilityDetails()
+    {
+        // Логіка для перегляду деталей медичного закладу
+    }
 }

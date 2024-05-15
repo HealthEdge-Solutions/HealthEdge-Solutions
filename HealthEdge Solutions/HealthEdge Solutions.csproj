@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\MedicalRecordsRepository.cs" />
     <Compile Include="Entity\Appointment.cs" />
     <Compile Include="Entity\BillingInvoice.cs" />
     <Compile Include="Entity\Doctor.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Entity\Patient.cs" />
     <Compile Include="Entity\TreatmentPlan.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="Controller\PatientsRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Path\To\Your\LibraryProject.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

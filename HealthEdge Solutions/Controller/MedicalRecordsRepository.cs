@@ -22,4 +22,3 @@ public class MedicalRecordsRepository : IRepository<MedicalRecord>
         File.WriteAllText(filePath, JsonConvert.SerializeObject(medicalRecords));
     }
 }
-

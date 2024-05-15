@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,71 @@ namespace HealthEdge_Solutions
         static void Main(string[] args)
         {
             PrintName();
-            
+            // Створення репозиторіїв
+            IRepository<MedicalRecord> medicalRecordsRepository = new MedicalRecordsRepository();
+            IRepository<Patient> patientsRepository = new PatientsRepository();
+
+            // Додавання деяких медичних записів
+            medicalRecordsRepository.Add(new MedicalRecord
+            {
+                MedicalRecordId = 1,
+                PatientId = 1,
+                Date = DateTime.Now,
+                Diagnosis = new List<string> { "Headache", "Fever" },
+                Medications = new List<string> { "Ibuprofen", "Paracetamol" }
+            });
+
+            medicalRecordsRepository.Add(new MedicalRecord
+            {
+                MedicalRecordId = 2,
+                PatientId = 2,
+                Date = DateTime.Now,
+                Diagnosis = new List<string> { "Sprained ankle" },
+                Medications = new List<string> { "Rest", "Ice", "Compression", "Elevation" }
+            });
+
+            // Додавання деяких пацієнтів
+            patientsRepository.Add(new Patient
+            {
+                PatientId = 1,
+                Name = "John Doe",
+                DateOfBirth = new DateTime(1980, 1, 1),
+                Address = "123 Main St",
+                InsurancePolicyNumber = "12345"
+            });
+
+            patientsRepository.Add(new Patient
+            {
+                PatientId = 2,
+                Name = "Jane Smith",
+                DateOfBirth = new DateTime(1990, 5, 10),
+                Address = "456 Elm St",
+                InsurancePolicyNumber = "67890"
+            });
+
+            // Вивід усіх медичних записів
+            Console.WriteLine("Medical Records:");
+            foreach (var record in medicalRecordsRepository.GetAll())
+            {
+                Console.WriteLine($"Record ID: {record.MedicalRecordId}");
+                Console.WriteLine($"Patient ID: {record.PatientId}");
+                Console.WriteLine($"Date: {record.Date}");
+                Console.WriteLine($"Diagnosis: {string.Join(", ", record.Diagnosis)}");
+                Console.WriteLine($"Medications: {string.Join(", ", record.Medications)}");
+                Console.WriteLine();
+            }
+
+            // Вивід усіх пацієнтів
+            Console.WriteLine("Patients:");
+            foreach (var patient in patientsRepository.GetAll())
+            {
+                Console.WriteLine($"Patient ID: {patient.PatientId}");
+                Console.WriteLine($"Name: {patient.Name}");
+                Console.WriteLine($"Date of Birth: {patient.DateOfBirth}");
+                Console.WriteLine($"Address: {patient.Address}");
+                Console.WriteLine($"Insurance Policy Number: {patient.InsurancePolicyNumber}");
+                Console.WriteLine();
+            }
             Console.ReadKey();
         }
     }

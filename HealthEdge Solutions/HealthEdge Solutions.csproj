@@ -47,9 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MedicalRecordsRepository.cs" />
+    <Compile Include="Entity\Appointment.cs" />
+    <Compile Include="Entity\BillingInvoice.cs" />
+    <Compile Include="Entity\Doctor.cs" />
+    <Compile Include="Entity\MedicalFacility.cs" />
+    <Compile Include="Entity\MedicalInsurance.cs" />
     <Compile Include="Entity\MedicalRecord.cs" />
+    <Compile Include="Entity\MedicalTest.cs" />
     <Compile Include="Entity\Patient.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Entity\TreatmentPlan.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Controller\PatientsRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

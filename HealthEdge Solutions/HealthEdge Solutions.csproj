@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller`s\PatientController.cs" />
+    <Compile Include="Controller`s\MedicalRecordController.cs" />
+    <Compile Include="Controller`s\DoctorController.cs" />
+    <Compile Include="Controller`s\AppointmentController.cs" />
     <Compile Include="Entity\Appointment.cs" />
     <Compile Include="Entity\BillingInvoice.cs" />
     <Compile Include="Entity\Doctor.cs" />
@@ -66,8 +70,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Path\To\Your\LibraryProject.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

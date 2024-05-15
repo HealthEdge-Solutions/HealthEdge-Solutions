@@ -1,5 +1,8 @@
-﻿using System;
+﻿using HealthEdge_Solutions.Controller_s;
+using HealthEdge_Solutions.Entity;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Patient
 {
@@ -44,24 +47,58 @@ public class Patient
     }
 
 
-    public void MakeAppointment()
+    public void MakeAppointment(Doctor doctor, DateTime dateTime)
     {
-        // Логіка для запису на прийом
+
     }
 
     public void ViewAppointments()
     {
-        // Логіка для перегляду прийомів пацієнта
+        AppointmentController appointmentController = new AppointmentController();
+        List<Appointment> patientAppointments = appointmentController.GetAllAppointments().Where(appt => appt.PatientId == this.PatientId).ToList();
+
+        if (patientAppointments.Count == 0)
+        {
+            Console.WriteLine("У вас немає записаних прийомів.");
+        }
+        else
+        {
+            Console.WriteLine("Ваші прийоми:");
+            foreach (Appointment appointment in patientAppointments)
+            {
+                DoctorController doctorController = new DoctorController();
+                Doctor doctor = doctorController.GetDoctorById(appointment.DoctorId); // Припустимо, що у нас є метод, який повертає лікаря за його ідентифікатором
+                Console.WriteLine($"Прийом №{appointment.AppointmentId}: Лікар {doctor.Name}, Час {appointment.DateTime}");
+            }
+        }
     }
 
     public void ViewMedicalRecord()
     {
-        // Логіка для перегляду медичної картки пацієнта
+        MedicalRecordController medicalRecordController = new MedicalRecordController();
+        MedicalRecord patientMedicalRecord = medicalRecordController.GetMedicalRecordByPatientId(this.PatientId);
+        PatientController patientController = new PatientController();
+        Patient patient = patientController.GetPatientById(patientMedicalRecord.PatientId);
+        if (patientMedicalRecord == null)
+        {
+            Console.WriteLine("У вас ще немає медичної картки.");
+        }
+        else
+        {
+            Console.WriteLine("Ваша медична картка:");
+            Console.WriteLine($"Ім'я: {patient.Name}");
+            Console.WriteLine($"Адреса: {patient.Address}");
+            Console.WriteLine($"Дата народження: {patient.DateOfBirth}");
+            Console.WriteLine($"Дата виготовлення картки: {patientMedicalRecord.Date}");
+            Console.WriteLine($"Діагнози: {patientMedicalRecord.Diagnosis}");
+            Console.WriteLine($"Призначені ліки: {patientMedicalRecord.Medications}");
+
+        }
     }
 
     public void ViewTreatmentPlans()
     {
-        // Логіка для перегляду планів лікування пацієнта
+        
     }
 
     public void ViewMedicalTests()

@@ -41,7 +41,7 @@ namespace HealthEdge_Solutions
                 switch (option)
                 {
                     case "1":
-                        patient.MakeAppointment();
+                        //patient.MakeAppointment();
                         break;
                     case "2":
                         patient.ViewAppointments();

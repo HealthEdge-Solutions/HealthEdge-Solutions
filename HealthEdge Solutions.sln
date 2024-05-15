@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthEdge Solutions", "HealthEdge Solutions\HealthEdge Solutions.csproj", "{68FCDB9A-A817-43DB-A078-AD1C74B77CD9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{037581CC-2238-45E3-96C6-EB530F7020C8} = {037581CC-2238-45E3-96C6-EB530F7020C8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{037581CC-2238-45E3-96C6-EB530F7020C8}"
 EndProject
